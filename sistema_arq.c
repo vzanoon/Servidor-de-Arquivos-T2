@@ -66,10 +66,10 @@ int main(int argc, char *argv[]){
 		truncate(file,(sizeof(i_node)*N_INODE)+(2*N_INODE));
 		fseek(nome_arquivo, 0, SEEK_END);
 		printf("================================================================================\n");
-		printf(">>\t\t     BLOCOS LIVRES: %2d  \tBYTES\n", N_INODE);
-		printf(">>\t\t     BLOCOS INODES: %2d  \tBYTES\n", sizeof(i_node)*N_INODE);
-		printf(">>\t\t     BLOCOS DADOS : %2d  \tBYTES\n", N_INODE);
-		printf(">>\t\t     FILE   TOTAL : %2d  \tBYTES\n", ftell(nome_arquivo));
+		printf(">>\t\t     BLOCOS LIVRES: %2d \tBYTES\n", N_INODE);
+		printf(">>\t\t     BLOCOS INODES: %2d \tBYTES\n", sizeof(i_node)*N_INODE);
+		printf(">>\t\t     BLOCOS DADOS : %2d \tBYTES\n", N_INODE);
+		printf(">>\t\t     FILE   TOTAL : %2d \tBYTES\n", ftell(nome_arquivo));
 		printf("================================================================================");
 		
 		
@@ -338,7 +338,7 @@ int MostraDiretorio(FILE *nome_arquivo, int id_inode)
 }
 
 
-// mostrar os dados do inode, conteudo se tipo ARQUIVO ou os arquivos se tipo DIRETORIO
+// mostrar os dados do inode, conteudo (se tipo = ARQUIVO) ou os arquivos (se tipo = DIRETORIO)
 int MostrarInode(FILE *nome_arquivo, int id_inode)
 {
 	char cont=0;
@@ -384,7 +384,6 @@ int MostrarInode(FILE *nome_arquivo, int id_inode)
 	
 	return -1;
 }
-
 
 // Criar novo arquivo
 void CriarArquivo(FILE *nome_arquivo, int id_inode_pai)
@@ -468,7 +467,7 @@ void CriarArquivo(FILE *nome_arquivo, int id_inode_pai)
 }
 
 
-// excluir arquivo
+// excluir arquivo existente pelo id
 void ExcluirArquivo(FILE *nome_arquivo, int id_inode)
 {
 	char cont=0;
